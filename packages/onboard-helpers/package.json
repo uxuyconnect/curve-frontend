@@ -10,6 +10,7 @@
     "@safe-global/safe-apps-sdk": "^9.1.0",
     "@web3-onboard/bitget": "^2.1.1",
     "@web3-onboard/coinbase": "^2.4.1",
+    "@web3-onboard/uxuy": "^2.4.1",
     "@web3-onboard/core": "^2.22.3",
     "@web3-onboard/fortmatic": "^2.1.1",
     "@web3-onboard/frontier": "^2.1.1",

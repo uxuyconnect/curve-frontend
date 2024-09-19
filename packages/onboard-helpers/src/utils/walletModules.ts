@@ -3,6 +3,7 @@ import trezorModule from '@web3-onboard/trezor'
 import ledgerModule from '@web3-onboard/ledger'
 import gnosisModule from '@web3-onboard/gnosis'
 import coinbaseWalletModule from '@web3-onboard/coinbase'
+import uxuyWalletModule from '@web3-onboard/uxuy'
 import fortmaticModule from '@web3-onboard/fortmatic'
 import walletConnectModule from '@web3-onboard/walletconnect'
 import torusModule from '@web3-onboard/torus'
@@ -33,6 +34,9 @@ export const gnosis = gnosisModule({
   ],
 })
 export const coinbaseWalletSdk = coinbaseWalletModule({ darkMode: true })
+
+export const uxuyWalletSdk = uxuyWalletModule({ darkMode: true })
+
 export const fortmatic = fortmaticModule({ apiKey: 'pk_live_190B10CE18F47DCD' })
 
 export const walletConnect = walletConnectModule({

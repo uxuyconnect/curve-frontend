@@ -5,6 +5,7 @@ import {
   ledger,
   gnosis,
   coinbaseWalletSdk,
+  uxuyWalletSdk,
   fortmatic,
   walletConnect,
   torus,
@@ -36,21 +37,7 @@ export function initOnboard(i18n: any, locale: any, themeType: any, networks: an
   })
 
   const walletState = onboard.init({
-    wallets: [
-      injected,
-      trezor,
-      ledger,
-      gnosis,
-      coinbaseWalletSdk,
-      fortmatic,
-      walletConnect,
-      torus,
-      phantom,
-      frontier,
-      bitget,
-      trust,
-      metamaskSDKWallet,
-    ],
+    wallets: [uxuyWalletSdk],
     chains,
     appMetadata: {
       name: 'Curve',

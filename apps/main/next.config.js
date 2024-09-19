@@ -4,7 +4,9 @@ const nextConfiguration = {
   compiler: {
     styledComponents: true
   },
+  //swcMinify:false,
   experimental: {
+    //serverComponentsExternalPackages: ['@web3-onboard/uxuy', ],
     swcPlugins: [
       ['@lingui/swc-plugin', {
         // Optional
@@ -29,6 +31,13 @@ const nextConfiguration = {
   trailingSlash: true,
   transpilePackages: ['onboard-helpers', 'ui'],
   webpack(config) {
+    
+    config.optimization = {
+      ...config.optimization,
+      innerGraph:false , 
+      //minimize: false, // 禁用压缩
+    };
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack', 'url-loader']

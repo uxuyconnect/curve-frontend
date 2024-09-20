@@ -78,16 +78,16 @@ const Header = () => {
           { route: ROUTE.PAGE_CREATE_POOL, label: t`Pool Creation`, groupedTitle: 'Pool Creation' },
           { route: ROUTE.PAGE_DASHBOARD, label: t`Dashboard`, groupedTitle: 'Dashboard' },
           { route: ROUTE.PAGE_INTEGRATIONS, label: t`Integrations`, groupedTitle: 'Integrations' },
-          { ...APP_LINK.crvusd, isDivider: true },
-          APP_LINK.lend,
+         // {  isDivider: true },
+
         ]
       : [
           { route: ROUTE.PAGE_POOLS, label: t`Pools`, groupedTitle: 'Pools' },
           { route: ROUTE.PAGE_DASHBOARD, label: t`Dashboard`, groupedTitle: 'More' },
           { route: ROUTE.PAGE_CREATE_POOL, label: t`Pool Creation`, groupedTitle: 'More' },
           { route: ROUTE.PAGE_INTEGRATIONS, label: t`Integrations`, groupedTitle: 'More' },
-          { ...APP_LINK.crvusd, isDivider: true },
-          APP_LINK.lend,
+         // { ...APP_LINK.crvusd, isDivider: true },
+
         ]
 
     if (hasRouter && networks[rChainId].showRouterSwap) {
@@ -152,7 +152,8 @@ const Header = () => {
     handleClick: (selectedThemeType: ThemeType) => setThemeType(selectedThemeType),
   }
 
-  const appsLinks = [APP_LINK.classicMain, ...APPS_LINKS]
+  const appsLinks: AppPage[] = []
+
 
   return (
     <>

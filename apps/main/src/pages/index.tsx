@@ -1,9 +1,13 @@
 import type { NextPage } from 'next'
 
+import { useEffect } from 'react';
+
 import { Navigate, Route, Routes } from 'react-router'
 import dynamic from 'next/dynamic'
 
 import { ROUTE } from '@/constants'
+
+import { useNavigate } from 'react-router-dom';
 
 const PageDashboard = dynamic(() => import('@/components/PageDashboard/Page'), { ssr: false })
 const PageLockedCrv = dynamic(() => import('@/components/PageCrvLocker/Page'), { ssr: false })
@@ -18,6 +22,28 @@ const PageCompensation = dynamic(() => import('@/components/PageCompensation/Pag
 const PageRiskDisclaimer = dynamic(() => import('@/components/PageRiskDisclaimer/Page'), { ssr: false })
 
 const App: NextPage = () => {
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const hash = window.location.hash; // 获取当前的 hash
+    const path = hash.replace('#', '').split('/'); // 分割路径
+
+    console.log(path)
+    
+    // 假设路径格式是：network/route
+    const network = path[1]; // 获取 network
+    const route = path[2]; // 获取 route
+
+    // 如果路径有效，导航到对应的 route
+    if (network && route) {
+      navigate(`/${network}/${route}`, { replace: true });
+    } else {
+      navigate('/'); // 默认导航到根路径
+    }
+  }, [navigate]);
+
   const SubRoutes = (
     <>
       <Route path=":network" element={<PageSwap />} />
